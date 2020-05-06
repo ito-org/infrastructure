@@ -1,0 +1,24 @@
+name: create-pull-request
+
+on:
+  repository_dispatch:
+    types: [create-pull-request]
+
+jobs:
+  pull-request:
+    name: ${{ github.event.client_payload.label }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v2
+      - name: Execute script
+        run: |
+          ${{ github.event.client_payload.script }}
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          branch: pr/${{ github.event.client_payload.label }}
+          title: "Update ${{ github.event.client_payload.label }}"
+          body: ""
+          labels: ${{ github.event.client_payload.label }}, automated
+          commit-message: "Automated change"
