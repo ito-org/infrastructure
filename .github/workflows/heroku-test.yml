@@ -1,0 +1,40 @@
+name: heroku-test
+on:
+  push:
+    paths:
+      - "heroku-test/**"
+
+jobs:
+  push:
+    name: Push docker image to Heroku
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Pull docker image and push to heroku
+        env:
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DOCKER_TAG_NAME=$(cat heroku-test/DOCKER_TAG_NAME)
+          DOCKER_TAG_VERSION=$(cat heroku-test/DOCKER_TAG_VERSION)
+          echo "$GITHUB_TOKEN" | docker login -u $GITHUB_ACTOR --password-stdin docker.pkg.github.com
+          docker pull $DOCKER_TAG_NAME:$DOCKER_TAG_VERSION
+          docker tag $DOCKER_TAG_NAME:$DOCKER_TAG_VERSION registry.heroku.com/$HEROKU_APP_NAME/web:$DOCKER_TAG_VERSION
+          echo "$HEROKU_API_KEY" | docker login -u _ --password-stdin registry.heroku.com
+          docker push registry.heroku.com/$HEROKU_APP_NAME/web:$DOCKER_TAG_VERSION
+
+  deploy:
+    name: Deploy to Heroku app
+    needs:
+      - push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Release image
+        env:
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release web -a $HEROKU_APP_NAME

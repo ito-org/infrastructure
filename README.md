@@ -4,6 +4,54 @@
 
 This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code) to deploy ito artifacts provided by other repositories on different platforms. Multiple/Competing infrastructure solutions are ecouraged (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
 
+## [Heroku Test Environment](./heroku-test/README.md)
+
+<table width="100%">
+  <tr>
+    <th align="left">Platform</th>
+    <th align="left">Artifact</th>
+    <th align="left">Deployed to</th>
+    <th align="left">Pipeline</th>
+    <th align="left">Links</th>
+  </tr>
+  <tr>
+    <td>
+      <a title="Heroku" href="https://heroku.com">
+        <img src="https://avatars3.githubusercontent.com/u/23211?s=200&v=4" height="40" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ito-org/api-backend">
+        api-backend
+      </a>
+    </td>
+    <td>
+      <a href="https://dashboard.heroku.com/apps/ito-heroku-test">
+        ito-heroku-test app
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Aheroku-test">
+        <img src="https://github.com/ito-org/infrastructure/workflows/heroku-test/badge.svg" />
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>
+          <a href="https://ito-heroku-test.herokuapp.com:8080/">
+            REST endpoint
+          </a>
+        </li>
+        <li>
+          <a href="https://dashboard.heroku.com/apps/ito-heroku-test/logs">
+            Logs
+          </a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
 ## Automating deployments
 
 <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Acreate-pull-request">
