@@ -21,9 +21,9 @@ jobs:
           DOCKER_TAG_VERSION=$(cat heroku-test/fieldtest-collector/DOCKER_TAG_VERSION)
           echo "$GITHUB_TOKEN" | docker login -u $GITHUB_ACTOR --password-stdin docker.pkg.github.com
           docker pull $DOCKER_TAG_NAME:$DOCKER_TAG_VERSION
-          docker tag $DOCKER_TAG_NAME:$DOCKER_TAG_VERSION registry.heroku.com/$HEROKU_APP_NAME/web:$DOCKER_TAG_VERSION
+          docker tag $DOCKER_TAG_NAME:$DOCKER_TAG_VERSION registry.heroku.com/$HEROKU_APP_NAME/web:latest
           echo "$HEROKU_API_KEY" | docker login -u _ --password-stdin registry.heroku.com
-          docker push registry.heroku.com/$HEROKU_APP_NAME/web:$DOCKER_TAG_VERSION
+          docker push registry.heroku.com/$HEROKU_APP_NAME/web:latest
 
   deploy:
     name: Deploy to Heroku app
