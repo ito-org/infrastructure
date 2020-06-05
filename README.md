@@ -50,6 +50,65 @@ This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>
+      <a title="Heroku" href="https://heroku.com">
+        <img src="https://avatars3.githubusercontent.com/u/23211?s=200&v=4" height="40" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ito-org/fieldtest-collector">
+        fieldtest-collector
+      </a>
+    </td>
+    <td>
+      <a href="https://dashboard.heroku.com/apps/ito-test-fieldtest-collector">
+        ito-test-fieldtest-collector
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Aheroku-test-fieldtest-collector">
+        <img src="https://github.com/ito-org/infrastructure/workflows/heroku-test-fieldtest-collector/badge.svg" />
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>
+          <a href="https://ito-test-fieldtest-collector.herokuapp.com">
+            REST endpoint
+          </a>
+        </li>
+        <li>
+          <a href="https://dashboard.heroku.com/apps/ito-test-fieldtest-collector/logs">
+            Logs
+          </a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+## [InfluxDB Cloud Account](https://www.influxdata.com/products/influxdb-cloud/)
+
+<table width="100%">
+  <tr>
+    <th align="left"></th>
+    <th align="left">Organization</th>
+    <th align="left">Bucket</th>
+  </tr>
+  <tr>
+    <td>
+      <a title="InfluxDB" href="https://www.influxdata.com/products/influxdb-cloud/">
+        <img src="https://influxdata.github.io/branding/img/downloads/influxdata-logo--symbol--castle-alpha.png" height="40" />
+      </a>
+    </td>
+    <td>
+      6ec65f3c90fd0796
+    </td>
+    <td>
+      main
+    </td>
+  </tr>
 </table>
 
 ## Automating deployments
