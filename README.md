@@ -8,18 +8,12 @@ This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/
 
 <table width="100%">
   <tr>
-    <th align="left"></th>
     <th align="left">Docker Image</th>
     <th align="left">Heroku App</th>
     <th align="left">Pipeline</th>
-    <th align="left">Links</th>
+    <th align="left">Notes</th>
   </tr>
   <tr>
-    <td>
-      <a title="Heroku" href="https://heroku.com">
-        <img src="https://avatars3.githubusercontent.com/u/23211?s=200&v=4" height="40" />
-      </a>
-    </td>
     <td>
       <a href="https://github.com/ito-org/api-backend">
         api-backend
@@ -38,24 +32,19 @@ This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/
     <td>
       <ul>
         <li>
-          <a href="https://heroku-test-api-backend.herokuapp.com">
-            REST endpoint
-          </a>
+          REST endpoint: https://ito-test-api-backend.herokuapp.com
         </li>
         <li>
-          <a href="https://dashboard.heroku.com/apps/ito-test-api-backend/logs">
-            Logs
+          Uses
+          <a href="https://elements.heroku.com/addons/heroku-postgresql">
+            Postgres-Heroku-Addon with "Hobby Dev" plan
           </a>
+          for persistence
         </li>
       </ul>
     </td>
   </tr>
   <tr>
-    <td>
-      <a title="Heroku" href="https://heroku.com">
-        <img src="https://avatars3.githubusercontent.com/u/23211?s=200&v=4" height="40" />
-      </a>
-    </td>
     <td>
       <a href="https://github.com/ito-org/fieldtest-collector">
         fieldtest-collector
@@ -74,14 +63,10 @@ This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/
     <td>
       <ul>
         <li>
-          <a href="https://ito-test-fieldtest-collector.herokuapp.com">
-            REST endpoint
-          </a>
+          REST endpoint: https://ito-test-fieldtest-collector.herokuapp.com/telegraf
         </li>
         <li>
-          <a href="https://dashboard.heroku.com/apps/ito-test-fieldtest-collector/logs">
-            Logs
-          </a>
+          Parses CSV data and stores it in InfluxDB
         </li>
       </ul>
     </td>
@@ -92,21 +77,23 @@ This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/
 
 <table width="100%">
   <tr>
-    <th align="left"></th>
     <th align="left">Organization</th>
     <th align="left">Bucket</th>
+    <th align="left">Notes</th>
   </tr>
   <tr>
-    <td>
-      <a title="InfluxDB" href="https://www.influxdata.com/products/influxdb-cloud/">
-        <img src="https://influxdata.github.io/branding/img/downloads/influxdata-logo--symbol--castle-alpha.png" height="40" />
-      </a>
-    </td>
     <td>
       6ec65f3c90fd0796
     </td>
     <td>
       main
+    </td>
+    <td>
+      <ul>
+        <li>
+          Stores fieldtest-collector data
+        </li>
+      </ul>
     </td>
   </tr>
 </table>
