@@ -4,48 +4,94 @@
 
 This repository contains [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code) to deploy ito artifacts provided by other repositories on different platforms. Multiple/Competing infrastructure solutions are ecouraged (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
 
-## [Heroku Test Environment](./heroku-test/README.md)
+## [Heroku Test Account](https://dashboard.heroku.com)
 
 <table width="100%">
   <tr>
-    <th align="left">Platform</th>
-    <th align="left">Artifact</th>
-    <th align="left">Deployed to</th>
+    <th align="left">Docker Image</th>
+    <th align="left">Heroku App</th>
     <th align="left">Pipeline</th>
-    <th align="left">Links</th>
+    <th align="left">Notes</th>
   </tr>
   <tr>
-    <td>
-      <a title="Heroku" href="https://heroku.com">
-        <img src="https://avatars3.githubusercontent.com/u/23211?s=200&v=4" height="40" />
-      </a>
-    </td>
     <td>
       <a href="https://github.com/ito-org/api-backend">
         api-backend
       </a>
     </td>
     <td>
-      <a href="https://dashboard.heroku.com/apps/ito-heroku-test">
-        ito-heroku-test app
+      <a href="https://dashboard.heroku.com/apps/ito-test-api-backend">
+        ito-test-api-backend
       </a>
     </td>
     <td>
-      <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Aheroku-test">
-        <img src="https://github.com/ito-org/infrastructure/workflows/heroku-test/badge.svg" />
+      <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Aheroku-test-api-backend">
+        <img src="https://github.com/ito-org/infrastructure/workflows/heroku-test-api-backend/badge.svg" />
       </a>
     </td>
     <td>
       <ul>
         <li>
-          <a href="https://ito-heroku-test.herokuapp.com:8080/">
-            REST endpoint
-          </a>
+          REST endpoint: https://ito-test-api-backend.herokuapp.com
         </li>
         <li>
-          <a href="https://dashboard.heroku.com/apps/ito-heroku-test/logs">
-            Logs
+          Uses
+          <a href="https://elements.heroku.com/addons/heroku-postgresql">
+            Postgres-Heroku-Addon with "Hobby Dev" plan
           </a>
+          for persistence
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/ito-org/fieldtest-collector">
+        fieldtest-collector
+      </a>
+    </td>
+    <td>
+      <a href="https://dashboard.heroku.com/apps/ito-test-fieldtest-collector">
+        ito-test-fieldtest-collector
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ito-org/infrastructure/actions?query=workflow%3Aheroku-test-fieldtest-collector">
+        <img src="https://github.com/ito-org/infrastructure/workflows/heroku-test-fieldtest-collector/badge.svg" />
+      </a>
+    </td>
+    <td>
+      <ul>
+        <li>
+          REST endpoint: https://ito-test-fieldtest-collector.herokuapp.com/telegraf
+        </li>
+        <li>
+          Parses CSV data and stores it in InfluxDB
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+## [InfluxDB Cloud Account](https://www.influxdata.com/products/influxdb-cloud/)
+
+<table width="100%">
+  <tr>
+    <th align="left">Organization</th>
+    <th align="left">Bucket</th>
+    <th align="left">Notes</th>
+  </tr>
+  <tr>
+    <td>
+      6ec65f3c90fd0796
+    </td>
+    <td>
+      main
+    </td>
+    <td>
+      <ul>
+        <li>
+          Stores fieldtest-collector data
         </li>
       </ul>
     </td>
